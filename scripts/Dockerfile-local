@@ -1,0 +1,12 @@
+FROM node:6.3.1-wheezy
+MAINTAINER Naval Saini <navalnovel@gmail.com>
+
+# env vars
+ENV PORT=8080
+
+# create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+EXPOSE $PORT
+CMD [ "npm", "start" ]

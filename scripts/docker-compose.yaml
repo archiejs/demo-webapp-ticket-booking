@@ -1,0 +1,53 @@
+version: '2'
+services:
+  webapp:
+    build:
+      context: ./../
+      dockerfile: ./scripts/Dockerfile
+    ports:
+    - "8080:8083"
+    environment:
+    - PORT=8080
+    depends_on:
+    - redis
+    - mongo
+  
+  webapp-local:
+    build:
+      context: ./../
+      dockerfile: ./scripts/Dockerfile-local
+    ports:
+    - "8080"
+    volumes:
+    - .:/usr/src/app
+    environment:
+    - NODE_ENV=local
+    - PORT=8080
+    networks:
+    - main
+    depends_on:
+    - redis
+    - mongo
+   
+  redis:
+    image: redis
+    ports:
+    - "6379:6379"
+    networks:
+    - main
+  
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"
+    volumes:
+    - data_mongo:/data/db
+    restart: always
+    networks:
+    - main
+
+volumes:
+  data_mongo:
+
+networks:
+  main:
