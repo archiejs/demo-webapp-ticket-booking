@@ -4,7 +4,7 @@ var supertest = require('supertest');
 require('should');
 require('should-http');
 
-var url = 'http://127.0.0.1:3000/v1';
+var url = 'http://127.0.0.1:8080/v1';
 
 var user = {
     username: 'naval',
