@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Books and blocks seats for users.",
   "plugin": {
+    "packageEnhancer": "kue",
     "consumes": [ "db.Ticket", "db.Event", "db.User" ],
     "provides": {
         "booking": {

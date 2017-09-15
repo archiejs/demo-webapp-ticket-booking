@@ -7,7 +7,6 @@ var config = require('./config/env');
 exports.booking = {
   server: {
     packagePath: 'modules/bookings',
-    packageEnhancer: 'kue',
     packageRole: 'server',
     server: config.redis,
     keyStore: config.keyStore,
@@ -15,13 +14,11 @@ exports.booking = {
   },
   client: {
     packagePath: 'modules/bookings',
-    packageEnhancer: 'kue',
     packageRole: 'client',
     server: config.redis
   },
   module: {
     packagePath: 'modules/bookings',
-    packageEnhancer: 'kue',
     packageRole: 'default',
     keyStore: config.keyStore
   }
@@ -35,7 +32,6 @@ exports.booking = {
 exports.common = [
   {
     'packagePath': 'models',
-    'packageEnhancer': 'mongodb',
     'server': config.db
   }
 ];
@@ -49,12 +45,12 @@ exports.expressApp = {
 
 // main app
 
-exports.webapp = [ exports.expressApp, exports.booking.client ]
+exports.mainapp = [ exports.expressApp, exports.booking.client ]
   .concat(exports.common);
 
 // a command line version
 
-exports.bookingapp = [ exports.booking.server ]
+exports.bookingservice = [ exports.booking.server ]
   .concat(exports.common);
 
 // one monolith
