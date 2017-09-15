@@ -39,7 +39,7 @@ You have a very simple microservice called over redis-kue.
 
 Run the authentication testcase (if running the first time), `mocha interfaces/express-app/test/auth.js --no-timeouts`
 
-Run the testcases, `mocha interfaces/express-app/test/bookOneTicket.js --no-timeouts`
+Run the booking testcases, `mocha interfaces/express-app/test/bookOneTicket.js --no-timeouts`
 
 
 NOTE: run the app before running testcases in a separate terminal.
