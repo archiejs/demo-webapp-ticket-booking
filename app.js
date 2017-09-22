@@ -14,7 +14,6 @@ var theApp = theArgs.app;
 require('./config/common/mongoose');
 
 var Archie = require('./config/common/archie.js'); // Archiejs setup
-var hasApis = (theApp === 'app');
 
 // Load the app's dependency tree
 
